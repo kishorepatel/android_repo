@@ -1,0 +1,3 @@
+why initiliaze a repo?
+because we want to track a directory for what changes have
+taken place
