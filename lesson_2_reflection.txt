@@ -1,3 +1,7 @@
 why initiliaze a repo?
 because we want to track a directory for what changes have
 taken place
+
+
+a whole logical changes is added at staging area, recheck it and then commit
+
