@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity{
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        setContentView(R.layout.single_item);
+        setContentView(R.layout.activity_main);
 
 //        if(convertView instanceof AdView)
 //            return convertView;
@@ -31,9 +31,9 @@ public class MainActivity extends AppCompatActivity{
 //        AdRequest adRequest = new AdRequest.Builder().build();
 //        adCur.loadAd(adRequest);
 
-        AdView ad  = (AdView) findViewById(R.id.ads_main);
-        AdRequest req = new AdRequest.Builder().build();
-        ad.loadAd(req);
+//        AdView ad  = (AdView) findViewById(R.id.ads_main);
+//        AdRequest req = new AdRequest.Builder().build();
+//        ad.loadAd(req);
 
     }
 }
