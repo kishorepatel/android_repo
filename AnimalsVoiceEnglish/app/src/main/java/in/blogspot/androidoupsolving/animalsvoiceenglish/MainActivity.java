@@ -1,12 +1,18 @@
 package in.blogspot.androidoupsolving.animalsvoiceenglish;
 
+import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.DeadObjectException;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Advanceable;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
@@ -14,36 +20,65 @@ import android.widget.RelativeLayout;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+    Button btnPractise;
+    Button btnTest;
+    Button btnSpeakerOptions;
+    Button btnSettings;
+    Button btnFavourites;
+    ImageView imgAppStore;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        setContentView(R.layout.single_item);
+        setContentView(R.layout.activity_main);
 
-        ImageView view = (ImageView) findViewById(R.id.img_animal);
+        btnPractise = (Button) findViewById(R.id.index_page_btn_practise);
+        btnTest = (Button) findViewById(R.id.index_page_btn_test);
+        btnSpeakerOptions = (Button) findViewById(R.id.index_page_btn_speaker_options);
+        btnSettings = (Button) findViewById(R.id.index_page_btn_settings);
+        btnFavourites = (Button) findViewById(R.id.index_page_btn_favourite);
+        imgAppStore = (ImageView) findViewById(R.id.index_page_img_app_store_page);
 
-        Animation zoomin = AnimationUtils.loadAnimation(this, R.anim.image_zoom_out);
-        view.setAnimation(zoomin);
 
-//        if(convertView instanceof AdView)
-//            return convertView;
-//
-//        if(convertView == null){
-//            convertView = LayoutInflater.from(mContext).inflate(R.layout.ad_day, parent, false);
-//        }
-//
-//        AdView adCur = (AdView) convertView.findViewById(R.id.ads_day);
-//        AdRequest adRequest = new AdRequest.Builder().build();
-//        adCur.loadAd(adRequest);
+        btnPractise.setOnClickListener(this);
+        btnTest.setOnClickListener(this);
+        btnSpeakerOptions.setOnClickListener(this);
+        btnSettings.setOnClickListener(this);
+        btnFavourites.setOnClickListener(this);
+        imgAppStore.setOnClickListener(this);
+    }
 
-        AdView ad  = (AdView) findViewById(R.id.ads_main);
-        AdRequest req = new AdRequest.Builder().build();
-        ad.loadAd(req);
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()){
+            case R.id.index_page_btn_practise:{
+                startActivity(new Intent(this, DetailActivity.class));
+                break;
+            }
+            case R.id.index_page_btn_test:{
+                break;
+            }
+            case R.id.index_page_btn_favourite:{
 
-        view.startAnimation(zoomin);
+                break;
+            }
+            case R.id.index_page_btn_settings:{
 
+                break;
+            }
+            case R.id.index_page_btn_speaker_options:{
+
+                break;
+            }
+            case R.id.index_page_img_app_store_page:{
+                break;
+            }
+            default:{
+                //don nothing
+            }
+        }
     }
 }

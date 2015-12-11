@@ -14,11 +14,10 @@
 
 
     <ImageView
-        android:id="@+id/img_animal"
+        android:id="@+id/practise_page_img_animal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
-        android:src="@drawable/beaver"
         android:layout_above="@+id/ads_main"/>
 
 
@@ -34,11 +33,13 @@
 
     <com.google.android.gms.ads.AdView
         android:layout_alignParentBottom="true"
-        android:id="@+id/ads_main"
+        android:id="@+id/practise_page_ad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#000"
         ads:adSize="BANNER"
-        ads:adUnitId="@string/banner_ad_unit_id_dummy"></com.google.android.gms.ads.AdView>
+        ads:adUnitId="@string/banner_ad_unit_id_dummy"
+        ></com.google.android.gms.ads.AdView>
 
     <LinearLayout
         android:id="@+id/bar_top_animal_name"
@@ -52,22 +53,25 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
-            android:src="@mipmap/ic_record_voice_over_black_24dp" />
+            android:src="@mipmap/ic_record_voice_over_black_24dp"
+            android:onClick="speakAnimalName" />
 
         <TextView
-            android:id="@+id/text_animal_name"
+            android:id="@+id/practise_page_animal_text"
             android:layout_width="0dp"
             android:layout_weight="6"
             android:gravity="center"
             android:layout_height="match_parent"
             android:text="Tiger Danger"
             android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionMode.Title"
+            android:onClick="speakAnimalName"
             />
 
         <View
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
+            android:onClick="speakAnimalName"
             />
     </LinearLayout>
 
@@ -78,10 +82,13 @@
         android:layout_height="48dp"
         >
         <ImageView
+            android:id="@+id/practise_page_img_favourite"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="left"
-            android:src="@mipmap/ic_star_border_black_36dp"/>
+            android:src="@mipmap/ic_star_border_black_36dp"
+            android:onClick="setUnsetFavourite"
+            />
 
         <View
             android:layout_width="0dp"
@@ -89,16 +96,18 @@
             android:layout_height="match_parent"/>
 
         <ImageView
+            android:id="@+id/practise_page_img_make_sound"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="right"
-            android:src="@mipmap/ic_volume_up_black_48dp"/>
+            android:src="@mipmap/ic_volume_up_black_48dp"
+            android:onClick="animalMakeSound"/>
     </LinearLayout>
 
 
     <LinearLayout
         android:id="@+id/bottom_bar_controls"
-        android:layout_above="@id/ads_main"
+        android:layout_above="@id/practise_page_ad"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="#96555555"
@@ -106,32 +115,36 @@
         >
 
         <ImageView
-            android:id="@+id/img_animal_back_btn"
+            android:id="@+id/practise_page_img_animal_back_btn"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
-            android:src="@mipmap/ic_arrow_back_white_36dp"/>
+            android:src="@mipmap/ic_arrow_back_white_36dp"
+            android:onClick="prevPage"/>
 
         <ImageView
-            android:id="@+id/img_animal_shuffle_btn"
+            android:id="@+id/practise_page_img_animal_shuffle_btn"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
-            android:src="@mipmap/ic_launcher"/>
+            android:src="@mipmap/ic_launcher"
+            android:onClick="shuffleAnimals"/>
 
         <ImageView
-            android:id="@+id/img_animal_set_ringtone_btn"
+            android:id="@+id/practise_page_img_animal_set_ringtone_btn"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
-            android:src="@mipmap/ic_launcher"/>
+            android:src="@mipmap/ic_launcher"
+            android:onClick="setRingtone"/>
 
         <ImageView
-            android:id="@+id/img_animal_forward_btn"
+            android:id="@+id/practise_page_img_animal_forward_btn"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
-            android:src="@mipmap/ic_arrow_forward_white_36dp"/>
+            android:src="@mipmap/ic_arrow_forward_white_36dp"
+            android:onClick="forwardPage"/>
     </LinearLayout>
 
 
