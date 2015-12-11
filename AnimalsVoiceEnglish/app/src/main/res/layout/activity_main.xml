@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <ImageView
+        android:id="@+id/background_wallpaper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/animals_5" />
+
+
+    <View
+        android:id="@+id/main_top_view"
+        android:layout_width="match_parent"
+        android:layout_height="60dp" />
+
+    <LinearLayout
+        android:id="@+id/main_pratise_test_bar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/main_top_view"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="PRACTISE"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionMode.Title" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="TEST"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionMode.Title" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/main_between_view"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_below="@id/main_top_view" />
+
+    <LinearLayout
+        android:id="@+id/main_setting_bar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/main_between_view"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_weight="1"
+            android:contentDescription="Speaker options"
+            android:gravity="center"
+            android:text="Speaker Options"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionMode.Title" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="favorite"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionMode.Title" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="settings"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionMode.Title" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:contentDescription="App Page in play store"
+        android:layout_margin="8dp"
+        android:src="@mipmap/ic_launcher" />
+
+</RelativeLayout>
