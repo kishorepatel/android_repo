@@ -11,8 +11,6 @@
 
 
 
-
-
     <ImageView
         android:id="@+id/img_animal"
         android:layout_width="match_parent"
@@ -20,8 +18,6 @@
         android:scaleType="fitXY"
         android:src="@drawable/beaver"
         android:layout_above="@+id/ads_main"/>
-
-
 
 
 
