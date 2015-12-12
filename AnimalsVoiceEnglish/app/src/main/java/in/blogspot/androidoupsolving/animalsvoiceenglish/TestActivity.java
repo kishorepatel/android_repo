@@ -107,11 +107,11 @@ int mPosition;
     public void handlerQuizBtnOption1(View v){
         String btnText = btnOption1.getText().toString();
         if(btnText.equals(quizAnimalsList.get(mPosition).getName())){
-            btnOption1.setBackgroundColor(getResources().getColor(R.color.green));
+            btnOption1.setBackground(getResources().getDrawable(R.drawable.right_button));
             correctToast(btnText);
         }
         else{
-            btnOption1.setBackgroundColor(getResources().getColor(R.color.red));
+            btnOption1.setBackground(getResources().getDrawable(R.drawable.wrong_button));
             wrongToast(btnText);
         }
     }
@@ -119,11 +119,11 @@ int mPosition;
     public void handlerQuizBtnOption2(View v){
         String btnText = btnOption2.getText().toString();
         if(btnText.equals(quizAnimalsList.get(mPosition).getName())){
-            btnOption2.setBackgroundColor(getResources().getColor(R.color.green));
+            btnOption2.setBackground(getResources().getDrawable(R.drawable.right_button));
             correctToast(btnText);
         }
         else{
-            btnOption2.setBackgroundColor(getResources().getColor(R.color.red));
+            btnOption2.setBackground(getResources().getDrawable(R.drawable.wrong_button));
             wrongToast(btnText);
         }
     }
@@ -131,11 +131,11 @@ int mPosition;
     public void handlerQuizBtnOption3(View v){
         String btnText = btnOption3.getText().toString();
         if(btnText.equals(quizAnimalsList.get(mPosition).getName())){
-            btnOption3.setBackgroundColor(getResources().getColor(R.color.green));
+            btnOption3.setBackground(getResources().getDrawable(R.drawable.right_button));
             correctToast(btnText);
         }
         else{
-            btnOption3.setBackgroundColor(getResources().getColor(R.color.red));
+            btnOption3.setBackground(getResources().getDrawable(R.drawable.wrong_button));
             wrongToast(btnText);
         }
     }
@@ -143,11 +143,11 @@ int mPosition;
     public void handlerQuizBtnOption4(View v){
         String btnText = btnOption4.getText().toString();
         if(btnText.equals(quizAnimalsList.get(mPosition).getName())){
-            btnOption4.setBackgroundColor(getResources().getColor(R.color.green));
+            btnOption4.setBackground(getResources().getDrawable(R.drawable.right_button));
             correctToast(btnText);
         }
         else{
-            btnOption4.setBackgroundColor(getResources().getColor(R.color.red));
+            btnOption4.setBackground(getResources().getDrawable(R.drawable.wrong_button));
             wrongToast(btnText);
         }
     }
@@ -208,6 +208,12 @@ int mPosition;
 
         //----------TODO------------
         //ALSO SET BUTTON COLORS TO NORMAL
+        btnOption1.setBackground(getResources().getDrawable(R.drawable.normal_button));
+        btnOption2.setBackground(getResources().getDrawable(R.drawable.normal_button));
+        btnOption3.setBackground(getResources().getDrawable(R.drawable.normal_button));
+        btnOption4.setBackground(getResources().getDrawable(R.drawable.normal_button));
+
+
         Random rnd = new Random();
         String tmp = null;
         for(int i = 0; i < 4; i++){

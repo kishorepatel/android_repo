@@ -114,10 +114,6 @@
                     android:layout_alignParentTop="true"
                     android:background="@color/light_grey_400">
 
-                    <View
-                        android:layout_width="480dp"
-                        android:layout_height="match_parent" />
-
                     <ImageButton
                         android:id="@+id/quiz_sound_btn"
                         android:layout_width="match_parent"
