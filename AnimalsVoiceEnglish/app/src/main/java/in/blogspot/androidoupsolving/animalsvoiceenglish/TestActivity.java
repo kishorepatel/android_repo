@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,9 +21,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Random;
 
-/**
- * Created by NEW on 10-12-2015.
- */
+
 public class TestActivity extends AppCompatActivity{
     public int TOTAL_QUESTION = 10;
 
@@ -34,9 +33,9 @@ int mPosition;
     Button btnOption3;
     Button btnOption4;
     ImageView quizImage;
-    ImageView quizSoundBtn;
-    ImageView quizPrevBtn;
-    ImageView quizNextBtn;
+    ImageButton quizSoundBtn;
+    ImageButton quizPrevBtn;
+    ImageButton quizNextBtn;
     TextView txtPageNumber;
 
     AdView adView;
@@ -60,9 +59,9 @@ int mPosition;
         btnOption3 = (Button) findViewById(R.id.quiz_option_3);
         btnOption4 = (Button) findViewById(R.id.quiz_option_4);
         quizImage = (ImageView) findViewById(R.id.quiz_img_question);
-        quizSoundBtn = (ImageView) findViewById(R.id.quiz_sound_btn);
-        quizPrevBtn = (ImageView) findViewById(R.id.quiz_img_back_btn);
-        quizNextBtn = (ImageView) findViewById(R.id.quiz_img_forward_btn);
+        quizSoundBtn = (ImageButton) findViewById(R.id.quiz_sound_btn);
+        quizPrevBtn = (ImageButton) findViewById(R.id.quiz_img_back_btn);
+        quizNextBtn = (ImageButton) findViewById(R.id.quiz_img_forward_btn);
         txtPageNumber = (TextView) findViewById(R.id.quiz_text_page_no);
         adView = (AdView) findViewById(R.id.quiz_ad_view);
 
@@ -80,6 +79,20 @@ int mPosition;
 
         //ANIMAL SOUND MEDIA
         mediaPlayer = new MediaPlayer();
+
+        //---image fling
+        quizImage.setOnTouchListener( new GestureFlingDetector(this){
+            @Override
+            public void onSwipeRight() {
+                gotoPrevPage();
+            }
+
+            @Override
+            public void onSwipeLeft() {
+                gotoNextPage();
+            }
+        });
+
 
         loadPage();
         loadAd();

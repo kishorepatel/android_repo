@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/quiz_ll_opt_buttons"
-            android:background="#000"
+            android:background="@color/black"
             app:adSize="BANNER"
             app:adUnitId="@string/banner_ad_unit_id_dummy"></com.google.android.gms.ads.AdView>
 
@@ -36,18 +36,24 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_marginLeft="6dp"
+                    android:layout_margin="8dp"
                     android:text="option 1"
-                    android:onClick="handlerQuizBtnOption1"/>
+                    android:onClick="handlerQuizBtnOption1"
+                    android:background="@drawable/normal_button"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:textColor="@color/white"/>
 
                 <Button
                     android:id="@+id/quiz_option_2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_marginRight="6dp"
+                    android:layout_margin="8dp"
                     android:text="option 2"
-                    android:onClick="handlerQuizBtnOption2"/>
+                    android:onClick="handlerQuizBtnOption2"
+                    android:background="@drawable/normal_button"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:textColor="@color/white"/>
 
             </LinearLayout>
 
@@ -61,18 +67,24 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_marginLeft="6dp"
+                    android:layout_margin="8dp"
                     android:text="option 3"
-                    android:onClick="handlerQuizBtnOption3"/>
+                    android:onClick="handlerQuizBtnOption3"
+                    android:background="@drawable/normal_button"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:textColor="@color/white"/>
 
                 <Button
                     android:id="@+id/quiz_option_4"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_marginRight="6dp"
+                    android:layout_margin="8dp"
                     android:text="option 4"
-                    android:onClick="handlerQuizBtnOption4"/>
+                    android:onClick="handlerQuizBtnOption4"
+                    android:background="@drawable/normal_button"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:textColor="@color/white"/>
 
             </LinearLayout>
         </LinearLayout>
@@ -80,7 +92,7 @@
         <android.support.v7.widget.CardView
             android:id="@+id/quiz_cardview_animal"
             android:layout_width="match_parent"
-            android:layout_height="400dp"
+            android:layout_height="480dp"
             android:layout_alignParentTop="true"
             android:layout_margin="6dp"
             android:elevation="4dp">
@@ -94,41 +106,42 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="fitXY"
-                    android:src="@drawable/animals_5"
                     />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_alignParentTop="true"
-                    android:background="#AFFF">
+                    android:background="@color/light_grey_400">
 
                     <View
                         android:layout_width="275dp"
                         android:layout_height="match_parent" />
 
-                    <ImageView
+                    <ImageButton
                         android:id="@+id/quiz_sound_btn"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:src="@mipmap/ic_volume_up_black_48dp"
-                        android:onClick="handlerQuizAnimalSound"/>
+                        android:onClick="handlerQuizAnimalSound"
+                        android:background="@null"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_alignParentBottom="true"
-                    android:background="#A000"
+                    android:background="@color/black_200"
                     android:orientation="horizontal"
                     >
 
-                    <ImageView
+                    <ImageButton
                         android:id="@+id/quiz_img_back_btn"
                         android:layout_width="0dp"
-                        android:layout_weight="1"
+                        android:layout_weight="2"
                         android:layout_height="match_parent"
-                        android:src="@mipmap/ic_arrow_back_white_36dp"
-                        android:onClick="handlerQuizPrevBtn"/>
+                        android:src="@mipmap/ic_arrow_back_black_48dp"
+                        android:onClick="handlerQuizPrevBtn"
+                        android:background="@null"/>
 
                     <TextView
                         android:id="@+id/quiz_text_page_no"
@@ -139,13 +152,14 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent" />
 
-                    <ImageView
+                    <ImageButton
                         android:id="@+id/quiz_img_forward_btn"
                         android:layout_width="0dp"
-                        android:layout_weight="1"
+                        android:layout_weight="2"
                         android:layout_height="match_parent"
-                        android:src="@mipmap/ic_arrow_forward_white_36dp"
-                        android:onClick="handlerQuizNextBtn"/>
+                        android:src="@mipmap/ic_arrow_forward_black_48dp"
+                        android:onClick="handlerQuizNextBtn"
+                        android:background="@null"/>
                 </LinearLayout>
             </RelativeLayout>
         </android.support.v7.widget.CardView>

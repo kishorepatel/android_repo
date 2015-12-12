@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -45,13 +46,13 @@ public class DetailActivity extends AppCompatActivity {
     TextToSpeech mTTS;
     MediaPlayer mMediaPlayer;
 
-    ImageView imgPrevPage;
-    ImageView imgForwardPage;
-    ImageView imgShuffle;
+    ImageButton imgPrevPage;
+    ImageButton imgForwardPage;
+    ImageButton imgShuffle;
     ImageView imgAnimalImage;
     TextView textAnimalName;
-    ImageView imgFavourite;
-    ImageView imgMakeSound;
+    ImageButton imgFavourite;
+    ImageButton imgMakeSound;
 
     AdView adView;
 
@@ -71,13 +72,13 @@ public class DetailActivity extends AppCompatActivity {
 
         setContentView(R.layout.single_item);
 
-        imgPrevPage = (ImageView) findViewById(R.id.practise_page_img_animal_back_btn);
-        imgForwardPage = (ImageView) findViewById(R.id.practise_page_img_animal_forward_btn);
-        imgShuffle = (ImageView) findViewById(R.id.practise_page_img_animal_shuffle_btn);
+        imgPrevPage = (ImageButton) findViewById(R.id.practise_page_img_animal_back_btn);
+        imgForwardPage = (ImageButton) findViewById(R.id.practise_page_img_animal_forward_btn);
+        imgShuffle = (ImageButton) findViewById(R.id.practise_page_img_animal_shuffle_btn);
         imgAnimalImage = (ImageView) findViewById(R.id.practise_page_img_animal);
         textAnimalName = (TextView) findViewById(R.id.practise_page_animal_text);
-        imgFavourite = (ImageView) findViewById(R.id.practise_page_img_favourite);
-        imgMakeSound = (ImageView) findViewById(R.id.practise_page_img_make_sound);
+        imgFavourite = (ImageButton) findViewById(R.id.practise_page_img_favourite);
+        imgMakeSound = (ImageButton) findViewById(R.id.practise_page_img_make_sound);
         adView = (AdView) findViewById(R.id.practise_page_ad);
 
         //ZOOM
@@ -225,7 +226,7 @@ public class DetailActivity extends AppCompatActivity {
         imgAnimalImage.startAnimation(zoomOut);
 
         if(isFavourite(animalName)){
-            imgFavourite.setImageResource(R.mipmap.ic_star_black_36dp);
+            imgFavourite.setImageResource(R.mipmap.ic_star_black_48dp);
         }
 
         switch(mSpeechOption){

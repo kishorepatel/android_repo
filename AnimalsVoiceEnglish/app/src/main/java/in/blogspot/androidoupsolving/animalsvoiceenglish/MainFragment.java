@@ -12,17 +12,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class MainFragment extends Fragment implements View.OnClickListener{
     public static final String IS_FAV_TAG = "Fav_list";
     Button btnPractise;
     Button btnTest;
-    Button btnSpeakerOptions;
-    Button btnSettings;
-    Button btnFavourites;
-    ImageView imgAppStore;
+
+    ImageButton btnSpeakerOptions;
+    ImageButton btnSettings;
+    ImageButton btnFavourites;
+    ImageButton imgAppStore;
 
     FragmentManager fragmentManager;
 
@@ -36,10 +37,10 @@ public class MainFragment extends Fragment implements View.OnClickListener{
         Log.d("ddd", "mainFramgnet oncreate: " + rootView);
         btnPractise = (Button) rootView.findViewById(R.id.index_page_btn_practise);
         btnTest = (Button) rootView.findViewById(R.id.index_page_btn_test);
-        btnSpeakerOptions = (Button) rootView.findViewById(R.id.index_page_btn_speaker_options);
-        btnSettings = (Button) rootView.findViewById(R.id.index_page_btn_settings);
-        btnFavourites = (Button) rootView.findViewById(R.id.index_page_btn_favourite);
-        imgAppStore = (ImageView) rootView.findViewById(R.id.index_page_img_app_store_page);
+        btnSpeakerOptions = (ImageButton) rootView.findViewById(R.id.index_page_btn_speaker_options);
+        btnSettings = (ImageButton) rootView.findViewById(R.id.index_page_btn_settings);
+        btnFavourites = (ImageButton) rootView.findViewById(R.id.index_page_btn_favourite);
+        imgAppStore = (ImageButton) rootView.findViewById(R.id.index_page_img_app_store_page);
 
 
         btnPractise.setOnClickListener(this);
