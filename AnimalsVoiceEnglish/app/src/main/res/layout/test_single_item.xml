@@ -11,18 +11,19 @@
 
         <com.google.android.gms.ads.AdView
             android:layout_marginTop="8dp"
-            android:id="@+id/test_ad_view"
+            android:id="@+id/quiz_ad_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/ll_opt_buttons"
+            android:layout_below="@+id/quiz_ll_opt_buttons"
+            android:background="#000"
             app:adSize="BANNER"
             app:adUnitId="@string/banner_ad_unit_id_dummy"></com.google.android.gms.ads.AdView>
 
         <LinearLayout
-            android:id="@+id/ll_opt_buttons"
+            android:id="@+id/quiz_ll_opt_buttons"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/text_card_animal"
+            android:layout_below="@+id/quiz_cardview_animal"
             android:orientation="vertical">
 
             <LinearLayout
@@ -31,20 +32,22 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/option_1"
+                    android:id="@+id/quiz_option_1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginLeft="6dp"
-                    android:text="option 1" />
+                    android:text="option 1"
+                    android:onClick="handlerQuizBtnOption1"/>
 
                 <Button
-                    android:id="@+id/option_2"
+                    android:id="@+id/quiz_option_2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginRight="6dp"
-                    android:text="option 2" />
+                    android:text="option 2"
+                    android:onClick="handlerQuizBtnOption2"/>
 
             </LinearLayout>
 
@@ -54,26 +57,28 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/option_3"
+                    android:id="@+id/quiz_option_3"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginLeft="6dp"
-                    android:text="option 3" />
+                    android:text="option 3"
+                    android:onClick="handlerQuizBtnOption3"/>
 
                 <Button
-                    android:id="@+id/option_4"
+                    android:id="@+id/quiz_option_4"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginRight="6dp"
-                    android:text="option 4" />
+                    android:text="option 4"
+                    android:onClick="handlerQuizBtnOption4"/>
 
             </LinearLayout>
         </LinearLayout>
 
         <android.support.v7.widget.CardView
-            android:id="@+id/text_card_animal"
+            android:id="@+id/quiz_cardview_animal"
             android:layout_width="match_parent"
             android:layout_height="400dp"
             android:layout_alignParentTop="true"
@@ -85,7 +90,7 @@
                 android:layout_height="match_parent">
 
                 <ImageView
-                    android:id="@+id/img_test_question"
+                    android:id="@+id/quiz_img_question"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="fitXY"
@@ -103,10 +108,11 @@
                         android:layout_height="match_parent" />
 
                     <ImageView
-                        android:id="@+id/test_sound_btn"
+                        android:id="@+id/quiz_sound_btn"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@mipmap/ic_volume_up_black_48dp" />
+                        android:src="@mipmap/ic_volume_up_black_48dp"
+                        android:onClick="handlerQuizAnimalSound"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -117,23 +123,29 @@
                     >
 
                     <ImageView
-                        android:id="@+id/test_back_btn"
+                        android:id="@+id/quiz_img_back_btn"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="match_parent"
-                        android:src="@mipmap/ic_arrow_back_white_36dp" />
+                        android:src="@mipmap/ic_arrow_back_white_36dp"
+                        android:onClick="handlerQuizPrevBtn"/>
 
-                    <View
+                    <TextView
+                        android:id="@+id/quiz_text_page_no"
+                        android:gravity="center"
+                        android:text="1/15"
+                        android:textColor="#FFF"
                         android:layout_weight="6"
                         android:layout_width="0dp"
                         android:layout_height="match_parent" />
 
                     <ImageView
-                        android:id="@+id/test_forward_btn"
+                        android:id="@+id/quiz_img_forward_btn"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="match_parent"
-                        android:src="@mipmap/ic_arrow_forward_white_36dp" />
+                        android:src="@mipmap/ic_arrow_forward_white_36dp"
+                        android:onClick="handlerQuizNextBtn"/>
                 </LinearLayout>
             </RelativeLayout>
         </android.support.v7.widget.CardView>

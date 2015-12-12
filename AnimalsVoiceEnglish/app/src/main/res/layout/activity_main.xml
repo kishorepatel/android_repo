@@ -35,7 +35,7 @@
             android:layout_marginRight="16dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="PRACTISE" />
+            android:text="Play" />
 
         <Button
             android:id="@+id/index_page_btn_test"
@@ -45,7 +45,7 @@
             android:layout_marginRight="16dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="TEST" />
+            android:text="Quiz" />
 
     </LinearLayout>
 

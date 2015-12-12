@@ -130,13 +130,7 @@
             android:src="@mipmap/ic_launcher"
             android:onClick="shuffleAnimals"/>
 
-        <ImageView
-            android:id="@+id/practise_page_img_animal_set_ringtone_btn"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:src="@mipmap/ic_launcher"
-            android:onClick="setRingtone"/>
+
 
         <ImageView
             android:id="@+id/practise_page_img_animal_forward_btn"
