@@ -10,8 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/practise_page_ad"
-        android:scaleType="fitXY"
-        />
+        android:scaleType="fitXY" />
 
 
     <com.google.android.gms.ads.AdView
@@ -21,7 +20,7 @@
         android:layout_alignParentBottom="true"
         android:background="@color/black"
         ads:adSize="BANNER"
-        ads:adUnitId="@string/banner_ad_unit_id_dummy"></com.google.android.gms.ads.AdView>
+        ads:adUnitId="@string/banner_ad_unit_id_practise_page"></com.google.android.gms.ads.AdView>
 
     <LinearLayout
         android:id="@+id/bar_top_animal_name"
@@ -35,9 +34,9 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="@null"
             android:onClick="speakAnimalName"
-            android:src="@mipmap/ic_record_voice_over_black_36dp"
-            android:background="@null"/>
+            android:src="@mipmap/ic_record_voice_over_black_36dp" />
 
         <TextView
             android:id="@+id/practise_page_animal_text"
@@ -67,9 +66,9 @@
             android:layout_width="60dp"
             android:layout_height="match_parent"
             android:layout_gravity="left"
+            android:background="@null"
             android:onClick="setUnsetFavourite"
-            android:src="@mipmap/ic_star_border_black_48dp"
-            android:background="@null"/>
+            android:src="@mipmap/ic_star_border_black_48dp" />
 
         <View
             android:layout_width="0dp"
@@ -81,9 +80,9 @@
             android:layout_width="60dp"
             android:layout_height="match_parent"
             android:layout_gravity="right"
+            android:background="@null"
             android:onClick="animalMakeSound"
-            android:src="@mipmap/ic_volume_up_black_48dp"
-            android:background="@null"/>
+            android:src="@mipmap/ic_volume_up_black_48dp" />
     </LinearLayout>
 
 
@@ -100,18 +99,18 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="@null"
             android:onClick="prevPage"
-            android:src="@mipmap/ic_arrow_back_black_48dp"
-            android:background="@null"/>
+            android:src="@mipmap/ic_arrow_back_black_48dp" />
 
         <ImageButton
             android:id="@+id/practise_page_img_animal_shuffle_btn"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="@null"
             android:onClick="shuffleAnimals"
-            android:src="@mipmap/shuffle48"
-            android:background="@null"/>
+            android:src="@mipmap/shuffle48" />
 
 
         <ImageButton
@@ -119,9 +118,9 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="@null"
             android:onClick="forwardPage"
-            android:src="@mipmap/ic_arrow_forward_black_48dp"
-            android:background="@null"/>
+            android:src="@mipmap/ic_arrow_forward_black_48dp" />
     </LinearLayout>
 
 

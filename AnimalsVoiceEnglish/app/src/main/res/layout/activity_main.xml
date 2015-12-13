@@ -34,11 +34,11 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_weight="1"
+            android:background="@drawable/normal_button"
             android:gravity="center"
             android:text="@string/btn_play"
-            android:background="@drawable/normal_button"
-            android:textColor="@color/white"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"/>
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/white" />
 
         <Button
             android:id="@+id/index_page_btn_test"
@@ -47,11 +47,11 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_weight="1"
+            android:background="@drawable/normal_button"
             android:gravity="center"
             android:text="@string/btn_quiz"
-            android:background="@drawable/normal_button"
-            android:textColor="@color/white"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"/>
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/white" />
 
     </LinearLayout>
 
@@ -75,10 +75,10 @@
             android:layout_marginLeft="24dp"
             android:layout_marginRight="24dp"
             android:layout_weight="1"
+            android:background="@drawable/normal_button"
             android:contentDescription="@string/btn_speaker_options"
             android:gravity="center"
-            android:background="@drawable/normal_button"
-            android:src="@mipmap/ic_record_voice_over_black_36dp"/>
+            android:src="@mipmap/ic_record_voice_over_black_36dp" />
 
 
         <ImageButton
@@ -88,10 +88,10 @@
             android:layout_marginLeft="24dp"
             android:layout_marginRight="24dp"
             android:layout_weight="1"
+            android:background="@drawable/normal_button"
             android:contentDescription="@string/btn_speaker_options"
             android:gravity="center"
-            android:background="@drawable/normal_button"
-            android:src="@mipmap/ic_star_border_black_48dp"/>
+            android:src="@mipmap/ic_star_border_black_48dp" />
 
 
         <ImageButton
@@ -101,10 +101,10 @@
             android:layout_marginLeft="24dp"
             android:layout_marginRight="24dp"
             android:layout_weight="1"
+            android:background="@drawable/normal_button"
             android:contentDescription="@string/btn_speaker_options"
             android:gravity="center"
-            android:background="@drawable/normal_button"
-            android:src="@mipmap/ic_settings_black_48dp"/>
+            android:src="@mipmap/ic_settings_black_48dp" />
 
 
     </LinearLayout>

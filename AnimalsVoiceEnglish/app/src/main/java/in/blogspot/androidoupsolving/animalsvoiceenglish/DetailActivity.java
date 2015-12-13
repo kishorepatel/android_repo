@@ -1,34 +1,21 @@
 package in.blogspot.androidoupsolving.animalsvoiceenglish;
 
-import android.app.Fragment;
-import android.content.res.Resources;
-import android.media.Image;
-import android.media.ImageReader;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.os.Environment;
-import android.provider.MediaStore;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Locale;
@@ -114,7 +101,7 @@ public class DetailActivity extends AppCompatActivity {
         mMediaPlayer = new MediaPlayer();
 
         //SWIPE OF IMAGES
-        imgAnimalImage.setOnTouchListener(new GestureFlingDetector(this){
+        imgAnimalImage.setOnTouchListener(new GestureFlingDetector(this) {
             @Override
             public void onSwipeRight() {
                 gotoPrevPage();
@@ -132,46 +119,41 @@ public class DetailActivity extends AppCompatActivity {
         loadAd();
     }
 
-    private void loadAd(){
+    private void loadAd() {
         AdRequest adRequest = new AdRequest.Builder().build();
         adView.loadAd(adRequest);
     }
 
-//--------------ANIMAL NAME SOUND-----------------------------
-    public void speakAnimalName(View v){
+    //--------------ANIMAL NAME SOUND-----------------------------
+    public void speakAnimalName(View v) {
         mSpeakAnimalName();
     }
-    private void mSpeakAnimalName(){
-        if(mMediaPlayer.isPlaying()){
-            mMediaPlayer.stop();
-        }
-        if(mTTS.isSpeaking()) {
-            mTTS.stop();
-        }
+
+    private void mSpeakAnimalName() {
+        stopPlayers();
         mTTS.speak(allAnimals.get(mPosition).getName(), TextToSpeech.QUEUE_ADD, null);
     }
 
 
     //--------ANIMAL SPEECH SOUND---------------------------
-    public void animalMakeSound(View v){
+    public void animalMakeSound(View v) {
         mAnimalMakeSound();
     }
-    private void mAnimalMakeSound(){
-        if (mMediaPlayer.isPlaying())
-            mMediaPlayer.stop();
+
+    private void mAnimalMakeSound() {
+        stopPlayers();
 
         String animalName = allAnimals.get(mPosition).getName();
-        int identifier = getResources().getIdentifier(animalName, "raw", "in.blogspot.androidoupsolving.animalsvoiceenglish");
+        int identifier = getResources().getIdentifier(animalName, getString(R.string.raw), getString(R.string.package_name));
         mMediaPlayer = MediaPlayer.create(this, identifier);
         mMediaPlayer.start();
     }
 
-    private void customSpeakAfterName(){
-        if(mMediaPlayer.isPlaying())
-            mMediaPlayer.stop();
+    private void customSpeakAfterName() {
+        stopPlayers();
 
         String animalName = allAnimals.get(mPosition).getName();
-        int identifier = getResources().getIdentifier(animalName, "raw", "in.blogspot.androidoupsolving.animalsvoiceenglish");
+        int identifier = getResources().getIdentifier(animalName, getString(R.string.raw), getString(R.string.package_name));
         mMediaPlayer = MediaPlayer.create(this, identifier);
         mMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
@@ -182,20 +164,23 @@ public class DetailActivity extends AppCompatActivity {
 
         mMediaPlayer.start();
     }
+
     ///---------------------------------PREV_PAGE, SHUFFLE, NEXT_PAGE
-    public void prevPage(View v){
+    public void prevPage(View v) {
         gotoPrevPage();
     }
-    public void gotoPrevPage(){
+
+    public void gotoPrevPage() {
+        stopPlayers();
         mPosition = mPosition + mSize - 1;
         mPosition %= mSize;
         loadPage();
     }
 
-    public void shuffleAnimals(View v){
+    public void shuffleAnimals(View v) {
         Random rnd = new Random();
         Animal temp = null;
-        for(int i = 0; i < mSize; i++){
+        for (int i = 0; i < mSize; i++) {
             int index = rnd.nextInt(mSize);
             temp = allAnimals.get(i);
             allAnimals.set(i, allAnimals.get(index));
@@ -204,19 +189,21 @@ public class DetailActivity extends AppCompatActivity {
     }
 
 
-    public void forwardPage(View v){
-       gotoForwardPage();
+    public void forwardPage(View v) {
+        gotoForwardPage();
     }
-    public void gotoForwardPage(){
+
+    public void gotoForwardPage() {
+        stopPlayers();
         mPosition = mPosition + 1;
         mPosition %= mSize;
         loadPage();
     }
 
     ///-------------------------LOAD PAGE--------------------
-    private void loadPage(){
+    private void loadPage() {
         String animalName = allAnimals.get(mPosition).getName();
-        int identifier = getResources().getIdentifier(animalName, "drawable", "in.blogspot.androidoupsolving.animalsvoiceenglish");
+        int identifier = getResources().getIdentifier(animalName, getString(R.string.drawable), getString(R.string.package_name));
 
         imgAnimalImage.setImageResource(identifier); //if problem exists use setImageBitmap from getResources
         textAnimalName.setText(makeFirstLetterCapital(animalName));
@@ -224,79 +211,84 @@ public class DetailActivity extends AppCompatActivity {
         imgAnimalImage.startAnimation(zoomOut);
 
         imgFavourite.setImageResource(R.mipmap.ic_star_border_black_48dp);
-        if(isFavourite(animalName)){
+        if (isFavourite(animalName)) {
             imgFavourite.setImageResource(R.mipmap.ic_star_black_48dp);
         }
 
-        switch(mSpeechOption){
-            case Utility.SPEAK_ONLY_NAME:{
+        switch (mSpeechOption) {
+            case Utility.SPEAK_ONLY_NAME: {
                 mSpeakAnimalName();
                 break;
             }
-            case Utility.SPEAK_ONLY_SOUND:{
+            case Utility.SPEAK_ONLY_SOUND: {
                 mAnimalMakeSound();
                 break;
             }
-            case Utility.SPEAK_NAME_FIRST:{
+            case Utility.SPEAK_NAME_FIRST: {
                 HashMap<String, String> myHashParam = new HashMap<>();
-                myHashParam.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, Utility.SPEAK_NAME_FIRST+"");
+                myHashParam.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, Utility.SPEAK_NAME_FIRST + "");
                 mTTS.speak(animalName, TextToSpeech.QUEUE_ADD, myHashParam);
                 break;
             }
-            case Utility.SPEAK_NAME_LAST:{
+            case Utility.SPEAK_NAME_LAST: {
                 customSpeakAfterName();
                 break;
             }
-            default:{
+            default: {
                 //do nothing
             }
         }
-
-
 
 
     }
 
 
     //-------------------FAVOURITE----------
-    private boolean isFavourite(String animalName){
-        if(mFavourites != null && mFavourites.contains(animalName)){
+    private boolean isFavourite(String animalName) {
+        if (mFavourites != null && mFavourites.contains(animalName)) {
             return true;
-        }
-        else{
+        } else {
             return false;
         }
     }
-    public void setUnsetFavourite(View v){
+
+    public void setUnsetFavourite(View v) {
         String animalName = allAnimals.get(mPosition).getName();
-        if(isFavourite(animalName)){
+        if (isFavourite(animalName)) {
             mFavourites.remove(animalName);
             imgFavourite.setImageResource(R.mipmap.ic_star_border_black_48dp);
             removeFromFavourite(animalName);
-        }
-        else{
+        } else {
             mFavourites.add(animalName);
             imgFavourite.setImageResource(R.mipmap.ic_star_black_48dp);
             addInFavourite(animalName);
         }
     }
 
-    private void removeFromFavourite(String name){
+    private void removeFromFavourite(String name) {
         Utility.removeFromFavourite(this, name);
     }
 
-    private void addInFavourite(String name){
+    private void addInFavourite(String name) {
         Utility.writeToFavourite(this, name);
     }
 
 //-------------------------------------------
 
-    private String makeFirstLetterCapital(String animalName){
-        if(animalName != null && animalName.length() > 1){
+    private String makeFirstLetterCapital(String animalName) {
+        if (animalName != null && animalName.length() > 1) {
             return Character.toUpperCase(animalName.charAt(0)) + animalName.substring(1);
-        }
-        else{
+        } else {
             return animalName;
+        }
+    }
+
+    private void stopPlayers() {
+        if (mMediaPlayer.isPlaying()) {
+            mMediaPlayer.stop();
+        }
+        if (mTTS.isSpeaking()) {
+            mTTS.stop();
         }
     }
 

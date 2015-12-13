@@ -7,9 +7,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 
-/**
- * Created by NEW on 12-12-2015.
- */
+
 public class SettingDialogFragment extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -18,7 +16,7 @@ public class SettingDialogFragment extends DialogFragment {
                 .setItems(R.array.setting_values, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                            Utility.goToAppStore(getActivity());
+                        Utility.goToAppStore(getActivity());
                     }
                 });
 

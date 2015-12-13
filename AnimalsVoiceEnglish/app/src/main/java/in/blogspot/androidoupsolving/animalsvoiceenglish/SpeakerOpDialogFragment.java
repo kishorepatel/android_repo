@@ -7,15 +7,13 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 
-/**
- * Created by NEW on 12-12-2015.
- */
+
 public class SpeakerOpDialogFragment extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle(R.string.speaker_options)
-                .setSingleChoiceItems(R.array.speaker_option_values, Utility.getSpeakerOption(getActivity()) , new DialogInterface.OnClickListener() {
+                .setSingleChoiceItems(R.array.speaker_option_values, Utility.getSpeakerOption(getActivity()), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Utility.setSpeakerOption(getActivity(), which);
@@ -23,7 +21,6 @@ public class SpeakerOpDialogFragment extends DialogFragment {
                     }
                 })
                 .setCancelable(true);
-
 
 
         return builder.create();

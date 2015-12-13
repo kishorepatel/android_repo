@@ -81,10 +81,10 @@
         android:layout_width="320dp"
         android:layout_height="80dp"
         android:layout_below="@id/main_between_view1"
+        android:layout_centerHorizontal="true"
         android:layout_weight="1"
         android:background="@drawable/normal_button"
         android:gravity="center"
-        android:layout_centerHorizontal="true"
         android:text="@string/btn_play"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
         android:textColor="@color/white" />
@@ -100,10 +100,10 @@
         android:layout_width="320dp"
         android:layout_height="80dp"
         android:layout_below="@id/main_between_view2"
+        android:layout_centerHorizontal="true"
         android:layout_weight="1"
         android:background="@drawable/normal_button"
         android:gravity="center"
-        android:layout_centerHorizontal="true"
         android:text="@string/btn_quiz"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
         android:textColor="@color/white" />

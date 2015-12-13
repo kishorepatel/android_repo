@@ -4,5 +4,4 @@
     android:id="@+id/fragment_main"
     android:name="in.blogspot.androidoupsolving.animalsvoiceenglish.MainFragment"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    />
+    android:layout_height="match_parent" />

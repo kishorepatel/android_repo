@@ -156,7 +156,7 @@ public class TestActivity extends AppCompatActivity {
             mediaPlayer.stop();
 
         String animalName = quizAnimalsList.get(mPosition).getName();
-        int identifier = getResources().getIdentifier(animalName, "raw", "in.blogspot.androidoupsolving.animalsvoiceenglish");
+        int identifier = getResources().getIdentifier(animalName, getString(R.string.raw), getString(R.string.package_name));
         mediaPlayer = MediaPlayer.create(this, identifier);
         mediaPlayer.start();
     }
@@ -166,6 +166,10 @@ public class TestActivity extends AppCompatActivity {
     }
 
     private void gotoPrevPage() {
+        if (mTTS.isSpeaking())
+            mTTS.stop();
+        if (mediaPlayer.isPlaying())
+            mediaPlayer.stop();
         if (mPosition == 0) {
             Toast.makeText(this, "Cannot go backward", Toast.LENGTH_SHORT).show();
             //speakMessage("Cannot go backward");
@@ -181,6 +185,10 @@ public class TestActivity extends AppCompatActivity {
     }
 
     private void gotoNextPage() {
+        if (mTTS.isSpeaking())
+            mTTS.stop();
+        if (mediaPlayer.isPlaying())
+            mediaPlayer.stop();
         if (mPosition + 1 >= quizAnimalsList.size()) {
             Toast.makeText(this, "Quiz Ended. Cannot go forward.", Toast.LENGTH_SHORT).show();
             speakMessage("Quiz Ended. Cannot go forward.");
@@ -193,7 +201,7 @@ public class TestActivity extends AppCompatActivity {
 
     private void loadPage() {
         String animalName = quizAnimalsList.get(mPosition).getName();
-        int identifier = getResources().getIdentifier(animalName, "drawable", "in.blogspot.androidoupsolving.animalsvoiceenglish");
+        int identifier = getResources().getIdentifier(animalName, getString(R.string.drawable), getString(R.string.package_name));
         quizImage.setImageResource(identifier);
         txtPageNumber.setText((mPosition + 1) + "/" + (mListSize));
         shuffleAndSetOptions(quizAnimalsList.get(mPosition).getChoices());
@@ -233,7 +241,7 @@ public class TestActivity extends AppCompatActivity {
 
     private void wrongToast(String animalName) {
         String msg = makeFirstLetterCapital(animalName) + " is wrong";
-        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
         speakMessage(msg);
     }
 

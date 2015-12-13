@@ -32,7 +32,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="fitXY"
-                    android:src="@drawable/peacock"/>
+                    android:src="@drawable/peacock" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -186,7 +186,7 @@
                 android:layout_marginTop="8dp"
 
                 app:adSize="BANNER"
-                app:adUnitId="@string/banner_ad_unit_id_dummy"></com.google.android.gms.ads.AdView>
+                app:adUnitId="@string/banner_ad_unit_id_test_page"></com.google.android.gms.ads.AdView>
         </LinearLayout>
 
     </LinearLayout>

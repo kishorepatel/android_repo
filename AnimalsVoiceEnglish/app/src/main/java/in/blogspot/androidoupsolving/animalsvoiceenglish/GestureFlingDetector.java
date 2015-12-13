@@ -5,9 +5,7 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 
-/**
- * Created by NEW on 12-12-2015.
- */
+
 public class GestureFlingDetector implements View.OnTouchListener {
 
     private final GestureDetector gestureDetector;

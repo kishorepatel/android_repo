@@ -4,23 +4,15 @@ package in.blogspot.androidoupsolving.animalsvoiceenglish;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.os.AsyncTask;
-import android.util.Log;
-import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Random;
@@ -45,6 +37,7 @@ public class Utility {
             File file = new File(context.getFilesDir(), Utility.favFile);
             if (!file.exists())
                 file.createNewFile();
+
             reader = new BufferedReader(new InputStreamReader(context.openFileInput(Utility.favFile)));
 
             String fav = "";
@@ -82,8 +75,6 @@ public class Utility {
 
         whatIsInFile.remove(name);
         createNewFileAndAddAll(context, whatIsInFile); //overwrite all the contents in file
-
-        getFavourites(context);
     }
 
     public static void writeToFavourite(Context context, String name) {
@@ -94,8 +85,6 @@ public class Utility {
 
         whatIsInFile.add(name);
         createNewFileAndAddAll(context, whatIsInFile); //overwrite all the contents in file
-
-        getFavourites(context);
     }
 
     private static void createNewFileAndAddAll(final Context context, final Set<String> favSet) {
@@ -137,7 +126,6 @@ public class Utility {
     public static ArrayList<Animal> getAllAnimals(Context context, boolean isFav) {
         ArrayList<Animal> allAnimals = init();
 
-
         if (isFav) {
             ArrayList<Animal> curRetList = new ArrayList<>();
             Set<String> favSet = getFavourites(context);
@@ -152,41 +140,6 @@ public class Utility {
         }
     }
 
-    private static ArrayList<Animal> init() {
-        ArrayList<Animal> allAnimals = new ArrayList<>();
-
-        ArrayList<String> options = new ArrayList<>();
-
-        options.add("peacock");
-        options.add("tiger");
-        options.add("buffalo");
-        options.add("cat");
-        allAnimals.add(new Animal("peacock", options));
-
-        options = new ArrayList<>();
-        options.add("peacock");
-        options.add("tiger");
-        options.add("buffalo");
-        options.add("cat");
-        allAnimals.add(new Animal("tiger", options));
-
-        options = new ArrayList<>();
-        options.add("peacock");
-        options.add("tiger");
-        options.add("buffalo");
-        options.add("cat");
-        allAnimals.add(new Animal("cat", options));
-
-        options = new ArrayList<>();
-        options.add("zebra");
-        options.add("tiger");
-        options.add("buffalo");
-        options.add("cat");
-        allAnimals.add(new Animal("zebra", options));
-
-
-        return allAnimals;
-    }
 
     public static void setSpeakerOption(Context context, int value) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(prefFileName, Context.MODE_PRIVATE);
@@ -237,5 +190,405 @@ public class Utility {
             }
         }
     }
+
+
+    private static ArrayList<Animal> init() {
+        ArrayList<Animal> allAnimals = new ArrayList<>();
+
+        ArrayList<String> options = new ArrayList<>();
+
+        options.add("cow");
+        options.add("horse");
+        options.add("lion");
+        options.add("monkey");
+        allAnimals.add(new Animal("horse", options));
+
+        options = new ArrayList<>();
+        options.add("tiger");
+        options.add("pig");
+        options.add("wolf");
+        options.add("leopard");
+        allAnimals.add(new Animal("tiger", options));
+
+        options = new ArrayList<>();
+        options.add("peacock");
+        options.add("turtle");
+        options.add("koala");
+        options.add("chicken");
+        allAnimals.add(new Animal("peacock", options));
+
+        options = new ArrayList<>();
+        options.add("sheep");
+        options.add("panda");
+        options.add("dog");
+        options.add("cat");
+        allAnimals.add(new Animal("panda", options));
+
+        options = new ArrayList<>();
+        options.add("gorilla");
+        options.add("hippopotamus");
+        options.add("elephant");
+        options.add("bear");
+        allAnimals.add(new Animal("elephant", options));
+
+        //--------------------------------------------------------------------------
+
+        options = new ArrayList<>();
+        options.add("dolphin");
+        options.add("duck");
+        options.add("chicken");
+        options.add("turkey");
+        allAnimals.add(new Animal("dolphin", options));
+
+
+        options = new ArrayList<>();
+        options.add("fox");
+        options.add("camel");
+        options.add("deer");
+        options.add("antelope");
+        allAnimals.add(new Animal("antelope", options));
+
+
+        options = new ArrayList<>();
+        options.add("cow");
+        options.add("bear");
+        options.add("gorilla");
+        options.add("rhinoceros");
+        allAnimals.add(new Animal("bear", options));
+
+
+        options = new ArrayList<>();
+        options.add("boar");
+        options.add("bison");
+        options.add("panda");
+        options.add("beaver");
+        allAnimals.add(new Animal("boar", options));
+
+
+        options = new ArrayList<>();
+        options.add("tiger");
+        options.add("cheetah");
+        options.add("cat");
+        options.add("fox");
+        allAnimals.add(new Animal("cheetah", options));
+
+
+        options = new ArrayList<>();
+        options.add("chicken");
+        options.add("peacock");
+        options.add("rooster");
+        options.add("turkey");
+        allAnimals.add(new Animal("chicken", options));
+
+
+        options = new ArrayList<>();
+        options.add("panda");
+        options.add("boar");
+        options.add("cow");
+        options.add("deer");
+        allAnimals.add(new Animal("cow", options));
+
+
+        options = new ArrayList<>();
+        options.add("camel");
+        options.add("shark");
+        options.add("dolphin");
+        options.add("crocodile");
+        allAnimals.add(new Animal("crocodile", options));
+
+
+        options = new ArrayList<>();
+        options.add("deer");
+        options.add("cheetah");
+        options.add("antelope");
+        options.add("goat");
+        allAnimals.add(new Animal("deer", options));
+
+        options = new ArrayList<>();
+        options.add("cat");
+        options.add("dog");
+        options.add("wolf");
+        options.add("fox");
+        allAnimals.add(new Animal("dog", options));
+
+        options = new ArrayList<>();
+        options.add("tiger");
+        options.add("sheep");
+        options.add("cheetah");
+        options.add("lion");
+        allAnimals.add(new Animal("lion", options));
+
+
+        options = new ArrayList<>();
+        options.add("duck");
+        options.add("crow");
+        options.add("seal");
+        options.add("peacock");
+        allAnimals.add(new Animal("duck", options));
+
+
+        options = new ArrayList<>();
+        options.add("hippopotamus");
+        options.add("horse");
+        options.add("bison");
+        options.add("cow");
+        allAnimals.add(new Animal("bison", options));
+
+        options = new ArrayList<>();
+        options.add("boar");
+        options.add("fox");
+        options.add("kangaroo");
+        options.add("wolf");
+        allAnimals.add(new Animal("fox", options));
+
+
+        options = new ArrayList<>();
+        options.add("rhinoceros");
+        options.add("monkey");
+        options.add("gorilla");
+        options.add("bear");
+        allAnimals.add(new Animal("gorilla", options));
+
+        options = new ArrayList<>();
+        options.add("hippopotamus");
+        options.add("rhinoceros");
+        options.add("beaver");
+        options.add("elephant");
+        allAnimals.add(new Animal("hippopotamus", options));
+
+        options = new ArrayList<>();
+        options.add("chicken");
+        options.add("rooster");
+        options.add("turkey");
+        options.add("peacock");
+        allAnimals.add(new Animal("turkey", options));
+
+        options = new ArrayList<>();
+        options.add("elephant");
+        options.add("donkey");
+        options.add("cow");
+        options.add("camel");
+        allAnimals.add(new Animal("camel", options));
+
+
+        options = new ArrayList<>();
+        options.add("tiger");
+        options.add("jaguar");
+        options.add("lion");
+        options.add("cheetah");
+        allAnimals.add(new Animal("jaguar", options));
+
+        options = new ArrayList<>();
+        options.add("boar");
+        options.add("goat");
+        options.add("hippopotamus");
+        options.add("pig");
+        allAnimals.add(new Animal("pig", options));
+
+
+        options = new ArrayList<>();
+        options.add("camel");
+        options.add("kangaroo");
+        options.add("koala");
+        options.add("panda");
+        allAnimals.add(new Animal("kangaroo", options));
+
+        options = new ArrayList<>();
+        options.add("pig");
+        options.add("koala");
+        options.add("beaver");
+        options.add("lemur");
+        allAnimals.add(new Animal("koala", options));
+
+        options = new ArrayList<>();
+        options.add("koala");
+        options.add("boar");
+        options.add("lemur");
+        options.add("monkey");
+        allAnimals.add(new Animal("lemur", options));
+
+
+        options = new ArrayList<>();
+        options.add("wolf");
+        options.add("goat");
+        options.add("sheep");
+        options.add("zebra");
+        allAnimals.add(new Animal("goat", options));
+
+
+        options = new ArrayList<>();
+        options.add("monkey");
+        options.add("koala");
+        options.add("panda");
+        options.add("bear");
+        allAnimals.add(new Animal("monkey", options));
+
+        options = new ArrayList<>();
+        options.add("dolphin");
+        options.add("shark");
+        options.add("penguin");
+        options.add("orca");
+        allAnimals.add(new Animal("orca", options));
+
+
+        options = new ArrayList<>();
+        options.add("duck");
+        options.add("camel");
+        options.add("koala");
+        options.add("frog");
+        allAnimals.add(new Animal("frog", options));
+
+        options = new ArrayList<>();
+        options.add("cheetah");
+        options.add("cat");
+        options.add("cow");
+        options.add("dog");
+        allAnimals.add(new Animal("cat", options));
+
+
+        options = new ArrayList<>();
+        options.add("bison");
+        options.add("boar");
+        options.add("moose");
+        options.add("goat");
+        allAnimals.add(new Animal("moose", options));
+
+
+        options = new ArrayList<>();
+        options.add("hippopotamus");
+        options.add("gorilla");
+        options.add("rhinoceros");
+        options.add("beaver");
+        allAnimals.add(new Animal("rhinoceros", options));
+
+
+        options = new ArrayList<>();
+        options.add("tiger");
+        options.add("camel");
+        options.add("deer");
+        options.add("zebra");
+        allAnimals.add(new Animal("zebra", options));
+
+        options = new ArrayList<>();
+        options.add("rooster");
+        options.add("chicken");
+        options.add("turkey");
+        options.add("duck");
+        allAnimals.add(new Animal("rooster", options));
+
+        options = new ArrayList<>();
+        options.add("seal");
+        options.add("shark");
+        options.add("dolphin");
+        options.add("turtle");
+        allAnimals.add(new Animal("seal", options));
+
+
+        options = new ArrayList<>();
+        options.add("goat");
+        options.add("camel");
+        options.add("pig");
+        options.add("sheep");
+        allAnimals.add(new Animal("sheep", options));
+
+
+        options = new ArrayList<>();
+        options.add("boar");
+        options.add("buffalo");
+        options.add("cow");
+        options.add("donkey");
+        allAnimals.add(new Animal("buffalo", options));
+
+        options = new ArrayList<>();
+        options.add("eagle");
+        options.add("crocodile");
+        options.add("snake");
+        options.add("squirrel");
+        allAnimals.add(new Animal("snake", options));
+
+
+        options = new ArrayList<>();
+        options.add("turtle");
+        options.add("crocodile");
+        options.add("bear");
+        options.add("seal");
+        allAnimals.add(new Animal("turtle", options));
+
+        options = new ArrayList<>();
+        options.add("fox");
+        options.add("dog");
+        options.add("wolf");
+        options.add("sheep");
+        allAnimals.add(new Animal("wolf", options));
+
+
+        options = new ArrayList<>();
+        options.add("eagle");
+        options.add("turkey");
+        options.add("duck");
+        options.add("crow");
+        allAnimals.add(new Animal("eagle", options));
+
+        options = new ArrayList<>();
+        options.add("tiger");
+        options.add("donkey");
+        options.add("cheetah");
+        options.add("panther");
+        allAnimals.add(new Animal("panther", options));
+
+        options = new ArrayList<>();
+        options.add("buffalo");
+        options.add("boar");
+        options.add("camel");
+        options.add("warthog");
+        allAnimals.add(new Animal("warthog", options));
+
+        options = new ArrayList<>();
+        options.add("beaver");
+        options.add("boar");
+        options.add("panda");
+        options.add("turtle");
+        allAnimals.add(new Animal("beaver", options));
+
+        options = new ArrayList<>();
+        options.add("duck");
+        options.add("eagle");
+        options.add("crow");
+        options.add("seal");
+        allAnimals.add(new Animal("crow", options));
+
+        options = new ArrayList<>();
+        options.add("penguin");
+        options.add("shark");
+        options.add("duck");
+        options.add("seal");
+        allAnimals.add(new Animal("penguin", options));
+
+        options = new ArrayList<>();
+        options.add("snake");
+        options.add("beaver");
+        options.add("squirrel");
+        options.add("lemur");
+        allAnimals.add(new Animal("squirrel", options));
+
+        options = new ArrayList<>();
+        options.add("goat");
+        options.add("dog");
+        options.add("donkey");
+        options.add("horse");
+        allAnimals.add(new Animal("donkey", options));
+
+
+        options = new ArrayList<>();
+        options.add("dolphin");
+        options.add("shark");
+        options.add("duck");
+        options.add("moose");
+        allAnimals.add(new Animal("shark", options));
+
+
+        return allAnimals;
+    }
+
 }
 
