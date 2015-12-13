@@ -2,6 +2,7 @@ package in.blogspot.androidoupsolving.animalsvoiceenglish;
 
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
 import android.support.v7.app.AppCompatActivity;
@@ -32,6 +33,8 @@ public class DetailActivity extends AppCompatActivity {
     public int mSize;
     public int mSpeechOption;
 
+    int counter = 0;
+
     TextToSpeech mTTS;
     MediaPlayer mMediaPlayer;
 
@@ -50,8 +53,9 @@ public class DetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d("ddd", "detailActivity oncreate");
+        Log.d("ddd", "oncreate");
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        setContentView(R.layout.single_item);
 
         boolean isFav = getIntent().getBooleanExtra(MainFragment.IS_FAV_TAG, false);
 
@@ -60,7 +64,7 @@ public class DetailActivity extends AppCompatActivity {
         mSpeechOption = Utility.getSpeakerOption(this);
         mSize = allAnimals.size();
 
-        setContentView(R.layout.single_item);
+
 
         imgPrevPage = (ImageButton) findViewById(R.id.practise_page_img_animal_back_btn);
         imgForwardPage = (ImageButton) findViewById(R.id.practise_page_img_animal_forward_btn);
@@ -75,11 +79,21 @@ public class DetailActivity extends AppCompatActivity {
         zoomOut = AnimationUtils.loadAnimation(this, R.anim.image_zoom_out);
         imgAnimalImage.setAnimation(zoomOut);
 
+        //MEDIAPLAYER
+        mMediaPlayer = new MediaPlayer();
+
         //TEXT TO SPEECH
         mTTS = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
                 mTTS.setLanguage(Locale.US);
+                //*****************************************
+                //*****************************************
+                //MOST IMPORTANT LINE IS BELOW ONE
+                //TTS will come to initialize and this is when or after which you have to start speaking
+                //http://stackoverflow.com/questions/14563098/text-to-speech-not-working-as-expected
+                //*****************************************
+                loadPage();
             }
         });
 
@@ -93,6 +107,7 @@ public class DetailActivity extends AppCompatActivity {
             public void onDone(String utteranceId) {
                 if (utteranceId != null)
                     mAnimalMakeSound();
+
             }
 
             @Override
@@ -100,8 +115,7 @@ public class DetailActivity extends AppCompatActivity {
 
             }
         });
-        //MEDIAPLAYER
-        mMediaPlayer = new MediaPlayer();
+
 
         //SWIPE OF IMAGES
         imgAnimalImage.setOnTouchListener(new GestureFlingDetector(this) {
@@ -116,12 +130,16 @@ public class DetailActivity extends AppCompatActivity {
             }
         });
 
-
         //LOADING PAGE
         loadPage();
         loadAd();
     }
 
+    @Override
+    public void onPostCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
+        super.onPostCreate(savedInstanceState, persistentState);
+
+    }
 
     private void loadAd() {
         AdRequest adRequest = new AdRequest.Builder().build();
@@ -230,9 +248,11 @@ public class DetailActivity extends AppCompatActivity {
                 break;
             }
             case Utility.SPEAK_NAME_FIRST: {
+
                 HashMap<String, String> myHashParam = new HashMap<>();
                 myHashParam.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, Utility.SPEAK_NAME_FIRST + "");
                 mTTS.speak(animalName, TextToSpeech.QUEUE_ADD, myHashParam);
+
                 break;
             }
             case Utility.SPEAK_NAME_LAST: {
@@ -243,7 +263,6 @@ public class DetailActivity extends AppCompatActivity {
                 //do nothing
             }
         }
-
 
     }
 
@@ -289,7 +308,7 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     private void stopPlayers() {
-        if (mMediaPlayer.isPlaying()) {
+        if (mMediaPlayer != null && mMediaPlayer.isPlaying()) {
             mMediaPlayer.stop();
         }
         if (mTTS.isSpeaking()) {
