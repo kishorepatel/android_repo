@@ -22,11 +22,11 @@ import java.util.Locale;
 import java.util.Random;
 
 
-public class TestActivity extends AppCompatActivity{
+public class TestActivity extends AppCompatActivity {
     public int TOTAL_QUESTION = 10;
 
     ArrayList<Animal> quizAnimalsList;
-int mPosition;
+    int mPosition;
     int mListSize;
     Button btnOption1;
     Button btnOption2;
@@ -81,7 +81,7 @@ int mPosition;
         mediaPlayer = new MediaPlayer();
 
         //---image fling
-        quizImage.setOnTouchListener( new GestureFlingDetector(this){
+        quizImage.setOnTouchListener(new GestureFlingDetector(this) {
             @Override
             public void onSwipeRight() {
                 gotoPrevPage();
@@ -98,105 +98,100 @@ int mPosition;
         loadAd();
     }
 
-    private void loadAd(){
+    private void loadAd() {
         AdRequest adRequest = new AdRequest.Builder().build();
         adView.loadAd(adRequest);
     }
 
 
-    public void handlerQuizBtnOption1(View v){
+    public void handlerQuizBtnOption1(View v) {
         String btnText = btnOption1.getText().toString();
-        if(btnText.equals(quizAnimalsList.get(mPosition).getName())){
+        if (btnText.equals(quizAnimalsList.get(mPosition).getName())) {
             btnOption1.setBackground(getResources().getDrawable(R.drawable.right_button));
             correctToast(btnText);
-        }
-        else{
+        } else {
             btnOption1.setBackground(getResources().getDrawable(R.drawable.wrong_button));
             wrongToast(btnText);
         }
     }
 
-    public void handlerQuizBtnOption2(View v){
+    public void handlerQuizBtnOption2(View v) {
         String btnText = btnOption2.getText().toString();
-        if(btnText.equals(quizAnimalsList.get(mPosition).getName())){
+        if (btnText.equals(quizAnimalsList.get(mPosition).getName())) {
             btnOption2.setBackground(getResources().getDrawable(R.drawable.right_button));
             correctToast(btnText);
-        }
-        else{
+        } else {
             btnOption2.setBackground(getResources().getDrawable(R.drawable.wrong_button));
             wrongToast(btnText);
         }
     }
 
-    public void handlerQuizBtnOption3(View v){
+    public void handlerQuizBtnOption3(View v) {
         String btnText = btnOption3.getText().toString();
-        if(btnText.equals(quizAnimalsList.get(mPosition).getName())){
+        if (btnText.equals(quizAnimalsList.get(mPosition).getName())) {
             btnOption3.setBackground(getResources().getDrawable(R.drawable.right_button));
             correctToast(btnText);
-        }
-        else{
+        } else {
             btnOption3.setBackground(getResources().getDrawable(R.drawable.wrong_button));
             wrongToast(btnText);
         }
     }
 
-    public void handlerQuizBtnOption4(View v){
+    public void handlerQuizBtnOption4(View v) {
         String btnText = btnOption4.getText().toString();
-        if(btnText.equals(quizAnimalsList.get(mPosition).getName())){
+        if (btnText.equals(quizAnimalsList.get(mPosition).getName())) {
             btnOption4.setBackground(getResources().getDrawable(R.drawable.right_button));
             correctToast(btnText);
-        }
-        else{
+        } else {
             btnOption4.setBackground(getResources().getDrawable(R.drawable.wrong_button));
             wrongToast(btnText);
         }
     }
 
-    public void handlerQuizAnimalSound(View v){
-        if(mTTS.isSpeaking())
+    public void handlerQuizAnimalSound(View v) {
+        if (mTTS.isSpeaking())
             mTTS.stop();
-        if(mediaPlayer.isPlaying())
+        if (mediaPlayer.isPlaying())
             mediaPlayer.stop();
 
         Log.d("ddd", "quiz sound clicked");
         String animalName = quizAnimalsList.get(mPosition).getName();
-        int identifier = getResources().getIdentifier(animalName, "raw", "in.blogspot.androidoupsolving.animalsvoiceenglish" );
+        int identifier = getResources().getIdentifier(animalName, "raw", "in.blogspot.androidoupsolving.animalsvoiceenglish");
         mediaPlayer = MediaPlayer.create(this, identifier);
         mediaPlayer.start();
     }
 
-    public void handlerQuizPrevBtn(View v){
+    public void handlerQuizPrevBtn(View v) {
         gotoPrevPage();
     }
-    private void gotoPrevPage(){
-        if(mPosition == 0){
+
+    private void gotoPrevPage() {
+        if (mPosition == 0) {
             Toast.makeText(this, "Cannot go backward", Toast.LENGTH_SHORT).show();
             speakMessage("Cannot go backward");
-        }
-        else{
+        } else {
             mPosition = (mPosition - 1 + mListSize) % mListSize;
             loadPage();
         }
     }
 
 
-    public void handlerQuizNextBtn(View v){
+    public void handlerQuizNextBtn(View v) {
         gotoNextPage();
     }
 
-    private void gotoNextPage(){
-        if(mPosition + 1 >= quizAnimalsList.size()){
+    private void gotoNextPage() {
+        if (mPosition + 1 >= quizAnimalsList.size()) {
             Toast.makeText(this, "Quiz Ended. Cannot go forward.", Toast.LENGTH_SHORT).show();
             speakMessage("Quiz Ended. Cannot go forward.");
-        }
-        else{
+        } else {
             mPosition = (mPosition + 1) % mListSize;
             loadPage();
         }
     }
 
 
-    private void loadPage(){
+    private void loadPage() {
         String animalName = quizAnimalsList.get(mPosition).getName();
         int identifier = getResources().getIdentifier(animalName, "drawable", "in.blogspot.androidoupsolving.animalsvoiceenglish");
         quizImage.setImageResource(identifier);
@@ -204,7 +199,7 @@ int mPosition;
         shuffleAndSetOptions(quizAnimalsList.get(mPosition).getChoices());
     }
 
-    private void shuffleAndSetOptions(ArrayList<String> op){
+    private void shuffleAndSetOptions(ArrayList<String> op) {
 
         //----------TODO------------
         //ALSO SET BUTTON COLORS TO NORMAL
@@ -216,7 +211,7 @@ int mPosition;
 
         Random rnd = new Random();
         String tmp = null;
-        for(int i = 0; i < 4; i++){
+        for (int i = 0; i < 4; i++) {
             int index = rnd.nextInt(4);
             tmp = op.get(i);
             op.set(i, op.get(index));
@@ -231,33 +226,32 @@ int mPosition;
 
     }
 
-    private void correctToast(String animalName){
+    private void correctToast(String animalName) {
         String msg = makeFirstLetterCapital(animalName) + " is correct";
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
         speakMessage(msg);
     }
 
-    private void wrongToast(String animalName){
+    private void wrongToast(String animalName) {
         String msg = makeFirstLetterCapital(animalName) + " is wrong";
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
         speakMessage(msg);
     }
 
-    private void speakMessage(String msg){
-        if(mTTS.isSpeaking())
+    private void speakMessage(String msg) {
+        if (mTTS.isSpeaking())
             mTTS.stop();
-        if(mediaPlayer.isPlaying()){
+        if (mediaPlayer.isPlaying()) {
             mediaPlayer.stop();
         }
 
         mTTS.speak(msg, TextToSpeech.QUEUE_ADD, null);
     }
 
-    private String makeFirstLetterCapital(String animalName){
-        if(animalName != null && animalName.length() > 1){
+    private String makeFirstLetterCapital(String animalName) {
+        if (animalName != null && animalName.length() > 1) {
             return Character.toUpperCase(animalName.charAt(0)) + animalName.substring(1);
-        }
-        else{
+        } else {
             return animalName;
         }
     }

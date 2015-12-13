@@ -15,7 +15,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-public class MainFragment extends Fragment implements View.OnClickListener{
+public class MainFragment extends Fragment implements View.OnClickListener {
     public static final String IS_FAV_TAG = "Fav_list";
     Button btnPractise;
     Button btnTest;
@@ -58,47 +58,46 @@ public class MainFragment extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-        switch(v.getId()){
-            case R.id.index_page_btn_practise:{
+        switch (v.getId()) {
+            case R.id.index_page_btn_practise: {
                 Intent intent = new Intent(getActivity(), DetailActivity.class);
                 intent.putExtra(IS_FAV_TAG, false);
                 startActivity(intent);
                 break;
             }
-            case R.id.index_page_btn_test:{
+            case R.id.index_page_btn_test: {
                 Log.d("ddd", "settings");
                 startActivity(new Intent(getActivity(), TestActivity.class));
                 break;
             }
-            case R.id.index_page_btn_favourite:{
+            case R.id.index_page_btn_favourite: {
                 Log.d("ddd", "favourites");
-                if(Utility.getFavouriteCount(getActivity()) > 0) {
+                if (Utility.getFavouriteCount(getActivity()) > 0) {
                     Intent intent = new Intent(getActivity(), TestActivity.class);
                     intent.putExtra(IS_FAV_TAG, true);
                     startActivity(intent);
-                }
-                else{
+                } else {
                     Toast.makeText(getActivity(), "Favourite is empty", Toast.LENGTH_SHORT).show();
                 }
                 break;
             }
-            case R.id.index_page_btn_settings:{
+            case R.id.index_page_btn_settings: {
                 Log.d("ddd", "settings");
                 SettingDialogFragment sdf = new SettingDialogFragment();
                 sdf.show(fragmentManager, "Calling from mainfragment");
                 break;
             }
-            case R.id.index_page_btn_speaker_options:{
+            case R.id.index_page_btn_speaker_options: {
                 Log.d("ddd", "settings");
                 SpeakerOpDialogFragment sodf = new SpeakerOpDialogFragment();
                 sodf.show(fragmentManager, "Calling from mainfragment");
                 break;
             }
-            case R.id.index_page_img_app_store_page:{
+            case R.id.index_page_img_app_store_page: {
                 Utility.goToAppStore(getActivity());
                 break;
             }
-            default:{
+            default: {
                 //don nothing
             }
         }
