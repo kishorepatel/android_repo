@@ -30,11 +30,10 @@ public class MainFragment extends Fragment implements View.OnClickListener {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        Log.d("ddd", "in the mainFramgnet oncreate");
         getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         View rootView = inflater.inflate(R.layout.activity_main, container, false);
-        Log.d("ddd", "mainFramgnet oncreate: " + rootView);
+
         btnPractise = (Button) rootView.findViewById(R.id.index_page_btn_practise);
         btnTest = (Button) rootView.findViewById(R.id.index_page_btn_test);
         btnSpeakerOptions = (ImageButton) rootView.findViewById(R.id.index_page_btn_speaker_options);
@@ -66,14 +65,12 @@ public class MainFragment extends Fragment implements View.OnClickListener {
                 break;
             }
             case R.id.index_page_btn_test: {
-                Log.d("ddd", "settings");
                 startActivity(new Intent(getActivity(), TestActivity.class));
                 break;
             }
             case R.id.index_page_btn_favourite: {
-                Log.d("ddd", "favourites");
                 if (Utility.getFavouriteCount(getActivity()) > 0) {
-                    Intent intent = new Intent(getActivity(), TestActivity.class);
+                    Intent intent = new Intent(getActivity(), DetailActivity.class);
                     intent.putExtra(IS_FAV_TAG, true);
                     startActivity(intent);
                 } else {
@@ -82,13 +79,11 @@ public class MainFragment extends Fragment implements View.OnClickListener {
                 break;
             }
             case R.id.index_page_btn_settings: {
-                Log.d("ddd", "settings");
                 SettingDialogFragment sdf = new SettingDialogFragment();
                 sdf.show(fragmentManager, "Calling from mainfragment");
                 break;
             }
             case R.id.index_page_btn_speaker_options: {
-                Log.d("ddd", "settings");
                 SpeakerOpDialogFragment sodf = new SpeakerOpDialogFragment();
                 sodf.show(fragmentManager, "Calling from mainfragment");
                 break;

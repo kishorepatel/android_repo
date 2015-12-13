@@ -51,6 +51,7 @@ public class TestActivity extends AppCompatActivity {
         setContentView(R.layout.test_single_item);
 
         quizAnimalsList = Utility.getQuizAnimalCandidates(this, TOTAL_QUESTION);
+
         mPosition = 0;
         mListSize = quizAnimalsList.size();
 
@@ -154,7 +155,6 @@ public class TestActivity extends AppCompatActivity {
         if (mediaPlayer.isPlaying())
             mediaPlayer.stop();
 
-        Log.d("ddd", "quiz sound clicked");
         String animalName = quizAnimalsList.get(mPosition).getName();
         int identifier = getResources().getIdentifier(animalName, "raw", "in.blogspot.androidoupsolving.animalsvoiceenglish");
         mediaPlayer = MediaPlayer.create(this, identifier);
@@ -168,7 +168,7 @@ public class TestActivity extends AppCompatActivity {
     private void gotoPrevPage() {
         if (mPosition == 0) {
             Toast.makeText(this, "Cannot go backward", Toast.LENGTH_SHORT).show();
-            speakMessage("Cannot go backward");
+            //speakMessage("Cannot go backward");
         } else {
             mPosition = (mPosition - 1 + mListSize) % mListSize;
             loadPage();
@@ -207,7 +207,6 @@ public class TestActivity extends AppCompatActivity {
         btnOption2.setBackground(getResources().getDrawable(R.drawable.normal_button));
         btnOption3.setBackground(getResources().getDrawable(R.drawable.normal_button));
         btnOption4.setBackground(getResources().getDrawable(R.drawable.normal_button));
-
 
         Random rnd = new Random();
         String tmp = null;

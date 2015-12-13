@@ -28,4 +28,5 @@ public class Animal implements Serializable {
     public void setChoices(ArrayList<String> choices) {
         this.choices = choices;
     }
+
 }

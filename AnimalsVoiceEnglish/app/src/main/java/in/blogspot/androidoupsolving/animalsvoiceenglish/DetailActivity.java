@@ -187,7 +187,6 @@ public class DetailActivity extends AppCompatActivity {
         gotoPrevPage();
     }
     public void gotoPrevPage(){
-        Log.d("ddd", "prevPage");
         mPosition = mPosition + mSize - 1;
         mPosition %= mSize;
         loadPage();
@@ -209,7 +208,6 @@ public class DetailActivity extends AppCompatActivity {
        gotoForwardPage();
     }
     public void gotoForwardPage(){
-        Log.d("ddd", "forwardpage");
         mPosition = mPosition + 1;
         mPosition %= mSize;
         loadPage();
@@ -219,12 +217,13 @@ public class DetailActivity extends AppCompatActivity {
     private void loadPage(){
         String animalName = allAnimals.get(mPosition).getName();
         int identifier = getResources().getIdentifier(animalName, "drawable", "in.blogspot.androidoupsolving.animalsvoiceenglish");
-        Log.d("ddd", animalName + " : " + identifier + " : " + mPosition);
+
         imgAnimalImage.setImageResource(identifier); //if problem exists use setImageBitmap from getResources
         textAnimalName.setText(makeFirstLetterCapital(animalName));
 
         imgAnimalImage.startAnimation(zoomOut);
 
+        imgFavourite.setImageResource(R.mipmap.ic_star_border_black_48dp);
         if(isFavourite(animalName)){
             imgFavourite.setImageResource(R.mipmap.ic_star_black_48dp);
         }
@@ -271,19 +270,23 @@ public class DetailActivity extends AppCompatActivity {
     public void setUnsetFavourite(View v){
         String animalName = allAnimals.get(mPosition).getName();
         if(isFavourite(animalName)){
-            removeFromFavourite();
+            mFavourites.remove(animalName);
+            imgFavourite.setImageResource(R.mipmap.ic_star_border_black_48dp);
+            removeFromFavourite(animalName);
         }
         else{
-            addInFavourite();
+            mFavourites.add(animalName);
+            imgFavourite.setImageResource(R.mipmap.ic_star_black_48dp);
+            addInFavourite(animalName);
         }
     }
 
-    private void removeFromFavourite(){
-
+    private void removeFromFavourite(String name){
+        Utility.removeFromFavourite(this, name);
     }
 
-    private void addInFavourite(){
-
+    private void addInFavourite(String name){
+        Utility.writeToFavourite(this, name);
     }
 
 //-------------------------------------------
