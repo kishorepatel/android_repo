@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
@@ -12,6 +13,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -48,6 +50,7 @@ public class DetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("ddd", "detailActivity oncreate");
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         boolean isFav = getIntent().getBooleanExtra(MainFragment.IS_FAV_TAG, false);
@@ -119,6 +122,7 @@ public class DetailActivity extends AppCompatActivity {
         loadAd();
     }
 
+
     private void loadAd() {
         AdRequest adRequest = new AdRequest.Builder().build();
         adView.loadAd(adRequest);
@@ -186,6 +190,7 @@ public class DetailActivity extends AppCompatActivity {
             allAnimals.set(i, allAnimals.get(index));
             allAnimals.set(index, temp);
         }
+        Toast.makeText(this, "Shuffled", Toast.LENGTH_SHORT).show();
     }
 
 
