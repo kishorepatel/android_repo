@@ -88,7 +88,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
                 break;
             }
             case R.id.index_page_img_app_store_page: {
-                Utility.goToAppStore(getActivity());
+                Utility.goToAppStore(getActivity(), false);
                 break;
             }
             default: {

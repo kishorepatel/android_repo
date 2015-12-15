@@ -19,8 +19,11 @@
     <string name="speaker_options">Speaker options</string>
 
     <!---APP STORE-->
-    <string name="goto_my_app_play_store_web">http://play.google.com/store/apps/details?id=in.blogspot.androidoupsolving.animalsvoiceenglish</string>
-    <string name="goto_my_app_play_store_market">market://details?id=in.blogspot.androidoupsolving.animalsvoiceenglish</string>
+    <string name="goto_my_app_play_store_web_animal">http://play.google.com/store/apps/details?id=in.blogspot.androidoupsolving.animalsvoiceenglish</string>
+    <string name="goto_my_app_play_store_market_animal">market://details?id=in.blogspot.androidoupsolving.animalsvoiceenglish</string>
+
+    <string name="goto_my_app_play_store_web_bird">http://play.google.com/store/apps/details?id=in.blogspot.androidupsolving.birdsvoiceenglish</string>
+    <string name="goto_my_app_play_store_market_bird">market://details?id=in.blogspot.androidupsolving.birdsvoiceenglish</string>
 
     <!--ADS-->
     <string name="banner_ad_unit_id_for_testing">ca-app-pub-3940256099942544/6300978111</string>

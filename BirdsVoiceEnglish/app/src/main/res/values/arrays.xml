@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="setting_values">
+        <item>Rate App</item>
+        <item>Report Error</item>
+    </string-array>
+
+    <string-array name="speaker_option_values">
+        <item>Speak only name</item>
+        <item>Speak only sound</item>
+        <item>Speak name first</item>
+        <item>Speak sound first</item>
+    </string-array>
+</resources>

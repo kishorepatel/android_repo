@@ -1,0 +1,32 @@
+<resources>
+    <string name="package_name">in.blogspot.androidupsolving.birdsvoiceenglish</string>
+    <string name="raw">raw</string>
+    <string name="drawable">drawable</string>
+    <string name="mipmap">mipmap</string>
+    <string name="app_name">BirdsVoiceEnglish</string>
+
+
+    <string name="fav_is_Empty">Favourite is empty</string>
+
+
+    <!--SETTINGS-->
+    <string name="btn_play">Play</string>
+    <string name="btn_quiz">Quiz</string>
+    <string name="btn_speaker_options">Speaker options</string>
+    <string name="btn_app_store_page">App Page in play store</string>
+
+    <string name="settings">Settings</string>
+    <string name="speaker_options">Speaker options</string>
+
+    <!---APP STORE-->
+    <string name="goto_my_app_play_store_web_bird">http://play.google.com/store/apps/details?id=in.blogspot.androidupsolving.birdsvoiceenglish</string>
+    <string name="goto_my_app_play_store_market_bird">market://details?id=in.blogspot.androidupsolving.birdsvoiceenglish</string>
+
+    <string name="goto_my_app_play_store_web_animal">http://play.google.com/store/apps/details?id=in.blogspot.androidoupsolving.animalsvoiceenglish</string>
+    <string name="goto_my_app_play_store_market_animal">market://details?id=in.blogspot.androidoupsolving.animalsvoiceenglish</string>
+
+    <!--ADS-->
+    <string name="banner_ad_unit_id_for_testing">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="banner_ad_unit_id_practise_page">ca-app-pub-3940256099942544/6300978111</string><!--TODO replace-->
+    <string name="banner_ad_unit_id_test_page">ca-app-pub-3940256099942544/6300978111</string><!--TODO replace-->
+</resources>

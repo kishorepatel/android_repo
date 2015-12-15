@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <ImageView
+        android:id="@+id/background_wallpaper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/peacock" />
+
+
+    <Space
+        android:id="@+id/main_top_view"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_alignParentTop="true" />
+
+
+    <LinearLayout
+        android:id="@+id/main_setting_bar"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_below="@id/main_top_view"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/index_page_btn_speaker_options"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_weight="1"
+            android:background="@drawable/normal_button"
+            android:contentDescription="@string/btn_speaker_options"
+            android:gravity="center"
+            android:src="@mipmap/ic_record_voice_over_black_36dp" />
+
+
+        <ImageButton
+            android:id="@+id/index_page_btn_favourite"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_weight="1"
+            android:background="@drawable/normal_button"
+            android:contentDescription="@string/btn_speaker_options"
+            android:gravity="center"
+            android:src="@mipmap/ic_star_border_black_48dp" />
+
+
+        <ImageButton
+            android:id="@+id/index_page_btn_settings"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_weight="1"
+            android:background="@drawable/normal_button"
+            android:contentDescription="@string/btn_speaker_options"
+            android:gravity="center"
+            android:src="@mipmap/ic_settings_black_48dp" />
+
+
+    </LinearLayout>
+
+    <Space
+        android:id="@+id/main_between_view1"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:layout_below="@id/main_setting_bar" />
+
+
+    <Button
+        android:id="@+id/index_page_btn_practise"
+        android:layout_width="320dp"
+        android:layout_height="80dp"
+        android:layout_below="@id/main_between_view1"
+        android:layout_centerHorizontal="true"
+        android:layout_weight="1"
+        android:background="@drawable/normal_button"
+        android:gravity="center"
+        android:text="@string/btn_play"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        android:textColor="@color/white" />
+
+    <Space
+        android:id="@+id/main_between_view2"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@id/index_page_btn_practise" />
+
+    <Button
+        android:id="@+id/index_page_btn_test"
+        android:layout_width="320dp"
+        android:layout_height="80dp"
+        android:layout_below="@id/main_between_view2"
+        android:layout_centerHorizontal="true"
+        android:layout_weight="1"
+        android:background="@drawable/normal_button"
+        android:gravity="center"
+        android:text="@string/btn_quiz"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        android:textColor="@color/white" />
+
+    <ImageButton
+        android:id="@+id/index_page_img_app_store_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="8dp"
+        android:contentDescription="@string/btn_app_store_page"
+        android:src="@mipmap/google_play_store" />
+
+</RelativeLayout>

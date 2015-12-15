@@ -175,18 +175,35 @@ public class Utility {
         return quizCandidates;
     }
 
-    public static void goToAppStore(Context context) {
-        Intent marketIntent = new Intent(Intent.ACTION_VIEW);
-        marketIntent.setData(Uri.parse(context.getString(R.string.goto_my_app_play_store_market)));
-        if (marketIntent.resolveActivity(context.getPackageManager()) != null) {
-            context.startActivity(marketIntent);
-        } else {
-            Intent webAppStoreIntent = new Intent(Intent.ACTION_VIEW);
-            webAppStoreIntent.setData(Uri.parse(context.getString(R.string.goto_my_app_play_store_web)));
-            if (webAppStoreIntent.resolveActivity(context.getPackageManager()) != null) {
-                context.startActivity(webAppStoreIntent);
+    public static void goToAppStore(Context context, boolean thisAPP) {
+        if(thisAPP) {
+            Intent marketIntent = new Intent(Intent.ACTION_VIEW);
+            marketIntent.setData(Uri.parse(context.getString(R.string.goto_my_app_play_store_market_animal)));
+            if (marketIntent.resolveActivity(context.getPackageManager()) != null) {
+                context.startActivity(marketIntent);
             } else {
-                Toast.makeText(context, "Install play store to open", Toast.LENGTH_SHORT).show();
+                Intent webAppStoreIntent = new Intent(Intent.ACTION_VIEW);
+                webAppStoreIntent.setData(Uri.parse(context.getString(R.string.goto_my_app_play_store_web_animal)));
+                if (webAppStoreIntent.resolveActivity(context.getPackageManager()) != null) {
+                    context.startActivity(webAppStoreIntent);
+                } else {
+                    Toast.makeText(context, "Install play store to open", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+        else{
+            Intent marketIntent = new Intent(Intent.ACTION_VIEW);
+            marketIntent.setData(Uri.parse(context.getString(R.string.goto_my_app_play_store_market_bird)));
+            if (marketIntent.resolveActivity(context.getPackageManager()) != null) {
+                context.startActivity(marketIntent);
+            } else {
+                Intent webAppStoreIntent = new Intent(Intent.ACTION_VIEW);
+                webAppStoreIntent.setData(Uri.parse(context.getString(R.string.goto_my_app_play_store_web_bird)));
+                if (webAppStoreIntent.resolveActivity(context.getPackageManager()) != null) {
+                    context.startActivity(webAppStoreIntent);
+                } else {
+                    Toast.makeText(context, "Install play store to open", Toast.LENGTH_SHORT).show();
+                }
             }
         }
     }

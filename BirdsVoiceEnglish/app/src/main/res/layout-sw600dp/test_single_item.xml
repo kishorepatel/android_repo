@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:id="@+id/rl_for_image"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8">
+
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/quiz_cardview_animal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_margin="6dp"
+            android:elevation="4dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/quiz_img_question"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="72dp"
+                    android:layout_alignParentTop="true"
+                    >
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent" />
+                    <ImageButton
+                        android:id="@+id/quiz_sound_btn"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:onClick="handlerQuizAnimalSound"
+                        android:src="@mipmap/ic_volume_up_black_48dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="84dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/black_200"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/quiz_img_back_btn"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:background="@null"
+                        android:onClick="handlerQuizPrevBtn"
+                        android:src="@mipmap/ic_arrow_back_black_48dp" />
+
+                    <TextView
+                        android:id="@+id/quiz_text_page_no"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="6"
+                        android:gravity="center"
+                        android:text="1/15"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                        android:textColor="#FFF" />
+
+                    <ImageButton
+                        android:id="@+id/quiz_img_forward_btn"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:background="@null"
+                        android:onClick="handlerQuizNextBtn"
+                        android:src="@mipmap/ic_arrow_forward_black_48dp" />
+                </LinearLayout>
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_for_controls"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:id="@+id/quiz_ll_opt_buttons"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/quiz_option_1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/normal_button"
+                    android:onClick="handlerQuizBtnOption1"
+                    android:text="option 1"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                    android:textColor="@color/white" />
+
+                <Button
+                    android:id="@+id/quiz_option_2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/normal_button"
+                    android:onClick="handlerQuizBtnOption2"
+                    android:text="option 2"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/quiz_option_3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/normal_button"
+                    android:onClick="handlerQuizBtnOption3"
+                    android:text="option 3"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                    android:textColor="@color/white" />
+
+                <Button
+                    android:id="@+id/quiz_option_4"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/normal_button"
+                    android:onClick="handlerQuizBtnOption4"
+                    android:text="option 4"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/ll_ad"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/black">
+
+            <com.google.android.gms.ads.AdView
+                android:id="@+id/quiz_ad_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/quiz_ll_opt_buttons"
+                android:layout_marginTop="8dp"
+
+                app:adSize="BANNER"
+                app:adUnitId="@string/banner_ad_unit_id_test_page"></com.google.android.gms.ads.AdView>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>
