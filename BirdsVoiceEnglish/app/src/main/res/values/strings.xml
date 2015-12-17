@@ -26,7 +26,7 @@
     <string name="goto_my_app_play_store_market_animal">market://details?id=in.blogspot.androidoupsolving.animalsvoiceenglish</string>
 
     <!--ADS-->
-    <string name="banner_ad_unit_id_for_testing">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="banner_ad_unit_id_practise_page">ca-app-pub-3940256099942544/6300978111</string><!--TODO replace-->
-    <string name="banner_ad_unit_id_test_page">ca-app-pub-3940256099942544/6300978111</string><!--TODO replace-->
+    <string name="banner_ad_unit_id_for_testing">ca-app-pub-3940256099942544/6300978111</string> <!--not used anywhere, for testing only-->
+    <string name="banner_ad_unit_id_practise_page">ca-app-pub-7902346198659943/6480313110</string>
+    <string name="banner_ad_unit_id_test_page">ca-app-pub-7902346198659943/7957046313</string>
 </resources>
